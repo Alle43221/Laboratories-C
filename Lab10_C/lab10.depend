@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1701865274 source:c:\oji\lab10\math_functions.c
+	"math_functions.h"
+
+1701865275 c:\oji\lab10\math_functions.h
+	<stdio.h>
+
+1701865942 source:c:\oji\lab10\string_operations.c
+	"string_operations.h"
+
+1701865911 c:\oji\lab10\string_operations.h
+	<stdio.h>
+	"ctype.h"
+
+1701867596 source:c:\oji\lab10\file_operations.c
+	"file_operations.h"
+
+1701867518 c:\oji\lab10\file_operations.h
+	<stdio.h>
+	<ctype.h>
+
+1701867443 source:c:\oji\lab10\main.c
+	<stdio.h>
+	<stdlib.h>
+	"math_functions.h"
+	"string_operations.h"
+	"file_operations.h"
+

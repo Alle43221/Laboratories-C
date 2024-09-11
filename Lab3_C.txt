@@ -1,0 +1,113 @@
+1. Area of circle
+#include <stdio.h>
+
+int main() {
+    double const pi=3.14159;
+    double radius, area;
+    printf("Please enter radius: \n");
+    scanf("%lf", &radius);
+    area=pi*radius*radius;
+    printf("The area of the circle is: %lf square units", area);
+}
+
+2. Sum, average and sum of squares
+#include <stdio.h>
+
+int main() {
+    int a, b, sum, sum_of_squares;
+    float avg;
+    printf("Please enter two integers:");
+    scanf("%d %d", &a, &b);
+    sum=a+b;
+    printf("The sum is: %d\n", sum);
+    avg=1.0f*sum/2;
+    printf("The average is: %f\n", avg);
+    sum_of_squares=a*a+b*b;
+    printf("The sum of squares is: %d\n", sum_of_squares);
+}
+
+3. Smallest and Largest Integer
+#include <stdio.h>
+
+int main() {
+    int a, smallest, largest;
+    printf("Please enter five integers:");
+    scanf("%d", &a);
+    smallest=a;
+    largest=a;
+    for(int i=1; i<=4; i++){
+        scanf("%d", &a);
+        if(a<smallest) smallest=a;
+        else if(a>largest) largest=a;
+    }
+    printf("The smallest number is %d and the largest is %d", smallest, largest);
+}
+
+4. Metric to Imperial
+#include <stdio.h>
+
+int main() {
+    float length, inches;
+    int feet, casting;
+    printf("Please enter a length (in cm):");
+    scanf("%f", &length);
+    inches=length/2.54;
+    feet=inches/12;
+    inches-=12*feet;
+    casting=inches*10;
+    inches=casting/10.f;
+
+    printf("%g cm is %d feet and is %g inches", length, feet, inches);
+}
+
+5. Minimum Number of Coins
+#include <stdio.h>
+
+int main() {
+    int amount, coins, copy;
+    printf("Please enter the amount:");
+    scanf("%d", &amount);
+    copy=amount;
+    coins+=amount/5;
+    amount-=coins*5;
+    coins+=amount/2;
+    amount-=(amount/2)*2;
+    coins+=amount;
+
+    printf("The minimum number of coins used for %d of the prefered currency is: %d", copy, coins);
+}
+
+6. Calculate Time After Interval
+#include <stdio.h>
+
+int main() {
+    int hours, minutes, x, y;
+    printf("Please enter the time (h:m format):");
+    scanf("%d:%d", &hours, &minutes);
+    printf("And the interval of time (h:m format):");
+    scanf("%d:%d", &x, &y);
+    minutes+=y;
+    if(minutes>=60) {
+        hours++;
+        minutes=minutes%60;
+    }
+    hours+=x;
+    hours=hours%24;
+
+    printf("Time after the specified interval is: %d and %d minutes", hours, minutes);
+}
+
+7. Area and Perimeter of Rhombus
+#include <stdio.h>
+#include "math.h"
+
+int main() {
+    float d1, d2, area, perimeter;
+    printf("Enter the length of the two diagonals of the diamond shape:");
+    scanf("%f %f", &d1, &d2);
+    area=d1*d2/2;
+    d1/=2; d2/=2;
+    perimeter=4* sqrtf(d1*d1+d2*d2);
+
+    printf("The Diamond shape described has an area of %g square units and a perimeter of %g units", area, perimeter);
+}

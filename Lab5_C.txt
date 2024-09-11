@@ -1,0 +1,257 @@
+WITHOUT POINTERS
+1. Array merging
+#include <stdio.h>
+
+int sort(int a[], int len){
+    for(int i=0; i<len; i++){
+        for(int j=i+1; j<len; j++){
+            if(a[i]>a[j]){
+                int aux=a[i];
+                a[i]=a[j];
+                a[j]=aux;
+            }
+        }
+    }
+}
+
+void print(int a[], int len){
+    for (int i=0; i<len; i++){
+        printf("%d ", a[i]);
+    }
+}
+
+int main() {
+    int len1, len2;
+    printf("Print number of elements:");
+    scanf("%d", &len1);
+    int a[len1];
+    printf("Print values:");
+    for(int i=0; i<len1; i++){
+        scanf("%d", &(a[i]));
+    }
+    sort(a, len1);
+
+    printf("Print number of elements:");
+    scanf("%d", &len2);
+    int b[len2];
+    printf("Print values:");
+    for(int i=0; i<len2; i++){
+        scanf("%d", &(b[i]));
+    }
+    sort(b, len2);
+
+    int c[len1+len2];
+    int i=0, j=0, cate=0;
+    while(i<len1 && j<len2){
+        if(a[i]<b[j]){
+            c[cate]=a[i];
+            i++;
+            cate++;
+        }
+        else
+        {
+            c[cate]=b[j];
+            j++;
+            cate++;
+        }
+    }
+    while(i<len1){
+        c[cate]=a[i];
+        i++;
+        cate++;
+    }
+    while(j<len2){
+        c[cate]=b[j];
+        j++;
+        cate++;
+    }
+
+    print(c, cate);
+    return 0;
+}
+
+2. Matrix transposition
+#include <stdio.h>
+
+int main() {
+    int len1;
+    printf("Print number of rows:");
+    scanf("%d", &len1);
+
+    int a[len1][len1], c[len1][len1];
+    printf("Print values:");
+
+    for(int i=0; i<len1; i++){
+        for(int j=0; j<len1; j++){
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            c[j][i]=a[i][j];
+        }
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            printf("%d ", c[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+3.String reversing
+#include <stdio.h>
+#include "string.h"
+
+int main() {
+    char s[250];
+    gets(s);
+    int len = strlen(s);
+    for(int i=0; i<len/2; i++){
+        char aux = s[i];
+        s[i] = s[len-i-1];
+        s[len-i-1]= aux;
+    }
+    printf("%s", s);
+    return 0;
+}
+
+WITH POINTERS
+1. Array merging
+#include <stdio.h>
+
+int sort(int a[], int len){
+    for(int i=0; i<len; i++){
+        for(int j=i+1; j<len; j++){
+            if(a[i]>a[j]){
+                int aux=*(a+i);
+                *(a+i)=*(a+j);
+                *(a+j)=aux;
+            }
+        }
+    }
+}
+
+void print(int a[], int len){
+    for (int i=0; i<len; i++){
+        printf("%d ", *(a+i));
+    }
+}
+
+int main() {
+    int len1, len2;
+    printf("Print number of elements:");
+    scanf("%d", &len1);
+    int a[len1];
+    printf("Print values:");
+    for(int i=0; i<len1; i++){
+        scanf("%d", (a+i));
+    }
+    sort(a, len1);
+
+    printf("Print number of elements:");
+    scanf("%d", &len2);
+    int b[len2];
+    printf("Print values:");
+    for(int i=0; i<len2; i++){
+        scanf("%d", (b+i));
+    }
+    sort(b, len2);
+
+    int c[len1+len2];
+    int i=0, j=0, cate=0;
+    while(i<len1 && j<len2){
+        if(a[i]<b[j]){
+            *(c+cate)=*(a+i);
+            i++;
+            cate++;
+        }
+        else
+        {
+            *(c+cate)=*(b+j);
+            j++;
+            cate++;
+        }
+    }
+    while(i<len1){
+        *(c+cate)=*(a+i);
+        i++;
+        cate++;
+    }
+    while(j<len2){
+        *(c+cate)=*(b+j);
+        j++;
+        cate++;
+    }
+
+    print(c, cate);
+    return 0;
+}
+
+2. Matrix transposition
+#include <stdio.h>
+
+int main() {
+    int len1;
+    printf("Print number of rows:");
+    scanf("%d", &len1);
+
+    int a[len1][len1], c[len1][len1];
+    printf("Print values:");
+
+    for(int i=0; i<len1; i++){
+        for(int j=0; j<len1; j++){
+            scanf("%d", (*(a+i)+j));
+        }
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            printf("%d ", *(*(a+i)+j));
+        }
+        printf("\n");
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            *(*(c+i)+j)=*(*(a+j)+i);
+        }
+    }
+
+    for(int i=0; i<len1; i++) {
+        for (int j = 0; j < len1; j++) {
+            printf("%d ", *(*(c+i)+j));
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+3. String reversing
+#include <stdio.h>
+#include "string.h"
+
+int main() {
+    char s[250];
+    gets(s);
+    int len = strlen(s);
+    for(int i=0; i<len/2; i++){
+        char aux = *(s+i);
+        *(s+i) = *(s+len-i-1);
+        *(s+len-i-1)= aux;
+    }
+    printf("%s", s);
+    return 0;
+}

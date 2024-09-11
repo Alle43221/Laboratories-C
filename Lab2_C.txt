@@ -1,0 +1,158 @@
+1.Leap Year
+#include <stdio.h>
+
+int main() {
+    int year;
+    printf("Write a year:");
+    scanf("%d", &year);
+    if(year%4==0 && year%100!=0)
+        printf("It is a leap year");
+    else printf("It is not a leap year");
+    return 0;
+}
+
+2.Odd or even
+#include <stdio.h>
+
+int main() {
+    int number;
+    printf("Write a number:");
+    scanf("%d", &number);
+    if(number%2==0)
+        printf("%d is an even number", number);
+    else printf("%d is an odd number", number);
+    return 0;
+}
+
+3.Vowel
+#include <stdio.h>
+
+int main() {
+    char character;
+    printf("Write a letter:");
+    scanf("%c", &character);
+    if(character=='a' || character=='i' || character=='o' || character=='u' || character=='e')
+        printf("%c is a vowel", character);
+    else printf("%c is not a vowel", character);
+    return 0;
+}
+
+4. Fahrenheit to Celsius
+#include <stdio.h>
+
+int main() {
+    float degrees_F, degrees_C;
+    int trunc;
+    printf("Write the temperature in degrees Fahrenheit:");
+    scanf("%f", &degrees_F);
+    degrees_C=(degrees_F-32)*5.0f/9.0f;
+    trunc=degrees_C*10;
+    degrees_C=trunc/10.0f;
+    printf("The temperature in degrees Celsius: %g", degrees_C);
+    return 0;
+}
+
+5. Rectangle Area
+#include <stdio.h>
+
+int main() {
+    int length, breadth;
+    printf("Write the length (in cm):");
+    scanf("%d", &length);
+    printf("Write the breadth (in cm):");
+    scanf("%d", &breadth);
+    printf("Area: %d square cm", length*breadth);
+    return 0;
+}
+
+6. Add Imaginary Numbers
+#include <stdio.h>
+
+int main() {
+    //x=a+b*i
+    int x_a, x_b, y_a, y_b;
+    printf("Write the coefficient of the real part of x:");
+    scanf("%d", &x_a);
+    printf("Write the coefficient of the imaginary part of x:");
+    scanf("%d", &x_b);
+    printf("Write the coefficient of the real part of y:");
+    scanf("%d", &y_a);
+    printf("Write the coefficient of the imaginary part of y:");
+    scanf("%d", &y_b);
+    
+    printf("%d+%di + %d+%di = %d+%di", x_a, x_b, y_a, y_b, x_a+y_a, x_b+y_b);
+    return 0;
+}
+
+7. Last Two Digits
+#include <stdio.h>
+
+int main() {
+    int year;
+    printf("Write the year:");
+    scanf("%d", &year);
+    if(year>=10)
+        printf("Last two digits: %d", year%100);
+    else printf("The year must have at least two digits!");
+    return 0;
+}
+
+8.ATM Transactions
+#include <stdio.h>
+
+int main() {
+    int balance=234, choice=0, amount;
+    printf("Good morning! Please select the transaction by typing the corresponding number: \n");
+    printf("1 --> Check Balance\n");
+    printf("2 --> Withdraw\n");
+    printf("3 --> Make a deposit\n");
+
+    while(choice<1 || choice>3)
+        scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+        {
+            printf("Your balance is %d$.", balance);
+            break;
+        }
+        case 2:{
+            printf("Please write the amount:");
+            scanf("%d", &amount);
+            if(amount>balance)
+                printf("Insufficient funds.");
+            else {
+                balance-=amount;
+                printf("Remaining balance: %d$.", balance);
+            }
+            break;
+        }
+        case 3:{
+            printf("Please write the amount:");
+            scanf("%d", &amount);
+            balance+=amount;
+            printf("New balance: %d$.", balance);
+            break;
+        }
+    }
+}
+
+9.Dwarf, Normal, Tall
+#include <stdio.h>
+
+int main() {
+    int height;
+
+    printf("Write the height of the person in cm:");
+    scanf("%d", &height);
+    if(height<=147)
+        printf("A height of %d cm is considered to be a sign of dwarfism.", height);
+    else if(height<=180)
+        printf("A height of %d cm is considered normal for an adult.", height);
+    else
+        printf("Someone with the height of %d cm is considered tall in most of the world.", height);
+    return 0;
+}
+
+
+
