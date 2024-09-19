@@ -1,2 +1,2 @@
 # Laboratories-C
-All solved laboratories for the C-Programming Course in first semester.
+All solved laboratories for the C-Programming Course of the first semester.
